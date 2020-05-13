@@ -1,0 +1,56 @@
+@import url('https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans:400,600,800');
+
+html {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-size: 10px;
+}
+.app {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 40px 50px;
+}
+.header {
+  color: #565656;
+  font-size: 4.5rem;
+  letter-spacing: 1px;
+}
+.input {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 1.4rem;
+  height: 40px;
+  padding: 5px 10px;
+  width: 300px;
+}
+.add-stock {
+  background: #3742fa;
+  border-radius: 3px;
+  box-shadow: 0 3px 7px #bbbaba;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  height: 42px;
+  letter-spacing: 1px;
+  margin-left: 5px;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+.error {
+  color: #ff0000;
+  font-size: 1.5rem;
+}
+.loading {
+  font-size: 1.5rem;
+}
+.watcher-form {
+  margin-top: 30px;
+}
+
+.stock-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.stock-card {
+  flex: 0 0 33.333333%;
+}
