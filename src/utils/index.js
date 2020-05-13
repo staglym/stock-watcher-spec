@@ -9,8 +9,3 @@ export const fetchUrl = (url) => fetch(url)
     console.error(`Error in client call: ${error}`);
     return false;
   });
-
-export const getLastObjProp = (obj) => {
-  const keys = Object.keys(obj);
-  return obj[keys[keys.length - 1]];
-};
