@@ -1,5 +1,7 @@
 # Stock Watcher
 
+Please see `SETUP.md` for instructions on how to run this locally.
+
 Your task is to build a simple web application for a user to add basic stock
 tickers to a dashboard.  To add a stock, the user enters the symbol of their
 desired stock (e.g. `GOOG`, `YHOO`, or `AAPL`) into a text field. When they
