@@ -9,7 +9,7 @@ const WatcherForm = ({
   symbol
 }) => {
   return (
-    <form className="watcher-form" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Input
         className="input"
         handleChange={handleChange}

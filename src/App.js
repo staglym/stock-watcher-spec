@@ -30,15 +30,13 @@ const App = () => {
       console.error('Received empty input');
       return false;
     }
-
-    const data = await(
-      fetchStocks(
-        setError,
-        setLoading,
-        setStocks,
-        stocks,
-        userSymbol
-      )
+    
+    fetchStocks(
+      setError,
+      setLoading,
+      setStocks,
+      stocks,
+      userSymbol
     );
 
     resetInput('');
@@ -56,7 +54,7 @@ const App = () => {
       </header>
       {loading && <div className="loading">Loading...</div>}
       {error
-        ? <div className="error">Something went wrong with the API call. Please refresh and try again!</div>
+        ? <div className="error">Something went wrong with the API call. Please refresh and try again</div>
         : <StockList stocks={stocks} />
       }
       
