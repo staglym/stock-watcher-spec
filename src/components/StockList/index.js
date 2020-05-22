@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import StockMeter from './StockMeter';
 import Arrow from './Arrow';
 
-const StockList = ({ stocks }) => {
+const StockList = ({ isMobile, stocks }) => {
   const stockList = stocks.map(stock => {
     const {
       name,
@@ -40,7 +40,7 @@ const StockList = ({ stocks }) => {
                 )}
                 {change}
               </div>
-              <div className="stock-changePercent">({changePercent})</div>
+              <div className="stock-changePercent">({changePercent + '%'})</div>
             </div>
           </div>
           <div className="stock-projection-info">
@@ -57,6 +57,7 @@ const StockList = ({ stocks }) => {
 };
 
 StockList.propTypes = {
+  isMobile: PropTypes.bool,
   stocks: PropTypes.array
 };
 

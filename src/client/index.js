@@ -59,7 +59,7 @@ export const fetchStocks = async (
       low: roundToTwo(stockInfo['04. low']),
       price: roundToTwo(stockInfo['05. price']),
       change: roundToTwo(stockInfo['09. change']),
-      changePercent: roundToTwo(stockInfo['10. change percent']) + '%'
+      changePercent: roundToTwo(stockInfo['10. change percent'])
     };
 
     setStocks([

@@ -18,15 +18,21 @@ body {
   letter-spacing: 1px;
   margin-bottom: 60px;
 }
+
+/* Form */
+.watcher-form {
+  display: flex;
+}
 .input {
   background: transparent;
   border: 1px solid #ddd;
   border-radius: 3px;
   box-sizing: border-box;
+  flex: 1;
   font-size: 1.4rem;
   height: 40px;
+  max-width: 300px;
   padding: 5px 10px;
-  width: 300px;
 }
 .add-stock {
   background: #3742fa;
@@ -34,10 +40,11 @@ body {
   box-shadow: 0 3px 7px #bbbaba;
   color: #fff;
   cursor: pointer;
+  flex: 1;
   font-weight: bold;
-  height: 42px;
   letter-spacing: 1px;
   margin-left: 5px;
+  max-width: 125px;
   padding: 0 20px;
   text-transform: uppercase;
 }
@@ -57,11 +64,12 @@ body {
 .stock-card {
   background: #fff;
   box-shadow: 1px 1px 10px #e6e6e6;
+  box-sizing: border-box;
   display: flex;
-  flex: 0 0 100%;
+  flex: 1 0 375px;
   height: 125px;
   margin: 5px;
-  max-width: 370px;
+  max-width: 375px;
 }
 .stock-change {
   box-sizing: border-box;
@@ -154,4 +162,67 @@ body {
 }
 .stock-projection-item {
   flex: 1;
+  margin: 0 3px;
+}
+
+@media screen and (min-width: 768px) {
+  .stock-list {
+    justify-content: space-between;
+  }
+  .stock-card {
+    max-width: calc(50% - 1rem);
+  }
+  .stock-projection-info {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .stock-card {
+    max-width: 375px;
+  }
+  .stock-list {
+    justify-content: unset;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header {
+    font-size: 4.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .stock-list {
+    margin-top: 20px;
+  }
+  .stock-card {
+    height: 85px;
+    margin: 5px 0;
+    max-width: 100%;
+  }
+  .stock-change {
+    display: none;
+  }
+  .stock-projection-info {
+    display: none;
+  }
+  .stock-info {
+    align-items: baseline;
+    display: flex;
+    padding: 15px;
+  }
+  .stock-naming {
+    flex: 1;
+    margin-right: 10px;
+    max-width: 55%;
+  }
+  .stock-current-price-info {
+    align-items: flex-end;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 0;
+    max-width: 40%;
+  }
+  .stock-change-info {
+    font-size: 1.5rem;
+  }
 }

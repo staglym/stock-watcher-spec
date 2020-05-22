@@ -7,24 +7,20 @@ const StockMeter = ({
   low,
   price
 }) => {
-  const calcPointPosition = (stockHigh, stockLow, stockPrice, stockChangePercent) => {
-    const high = parseFloat(stockHigh);
-    const low = parseFloat(stockLow);
-    const price = parseFloat(stockPrice);
-    const changePercent = parseFloat(stockChangePercent);
-
+  const calcPointPosition = (high, low, price, changePercent) => {
+    // Find what percentage `price` is in the range {low - high}
     const pos = ((price - low) * 100) / (high - low);
+    const posFixed = pos.toFixed(2);
     const halfway = 50;
-    const top = changePercent > 0
-      ? `${halfway - pos}%`
-      : changePercent < 0
-        ? `${halfway + pos}%`
-        : `${halfway}%`;
-    const offset = '-6.5px'; // Current HTML entity I'm using is using 13px of height
+    const offset = '-6.5px';
+    const topPercentage = 100 - posFixed;
+    const top = changePercent !== 0
+      ? `calc(${topPercentage}% + ${offset})`
+      : `${halfway}%`
 
     return {
       position: 'relative',
-      top: `calc(${top} - ${offset})`
+      top
     };
   };
 

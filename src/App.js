@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 import WatcherForm from './components/WatcherForm';
@@ -11,6 +11,16 @@ const App = () => {
   const [stocks, setStocks] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isMobile, setMobile] = useState(window.innerWidth < 480);
+
+  const updateViewport = () => {
+    setMobile(window.innerWidth < 480);
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', updateViewport);
+    return () => window.removeEventListener('resize', updateViewport);
+  });
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -27,7 +37,6 @@ const App = () => {
 
     if (!userSymbol.length) {
       resetInput();
-      console.error('Received empty input');
       return false;
     }
     
@@ -39,7 +48,7 @@ const App = () => {
       userSymbol
     );
 
-    resetInput('');
+    resetInput();
   };
 
   return (
@@ -49,15 +58,19 @@ const App = () => {
         <WatcherForm
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          isMobile={isMobile}
           symbol={symbol}
         />
       </header>
       {loading && <div className="loading">Loading...</div>}
       {error
-        ? <div className="error">Something went wrong with the API call. Please refresh and try again</div>
-        : <StockList stocks={stocks} />
+        ?
+          <>
+            <div className="error">Something went wrong. Did you enter a valid stock symbol?</div>
+            <StockList isMobile={isMobile} stocks={stocks} />
+          </>
+        : <StockList isMobile={isMobile} stocks={stocks} />
       }
-      
     </div>
   );
 }
